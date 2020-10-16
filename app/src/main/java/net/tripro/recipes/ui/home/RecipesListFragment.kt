@@ -97,7 +97,7 @@ class RecipesListFragment : BaseFragment(), RecipeListAdapter.OnItemClick {
                 adapter.setList(it)
                 mBinding.rvRecipes.adapter = adapter
                 //if user has chosen a sort type before , will apply it after list fetched
-                if (sortType != null){
+                if (sortType != "null"){
                     viewModel.setSortType(sortType)
                 }
             })
