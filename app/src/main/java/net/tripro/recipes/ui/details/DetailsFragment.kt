@@ -34,6 +34,8 @@ class DetailsFragment : BaseFragment() {
         val fromBundle = DetailsFragmentArgs.fromBundle(requireArguments())
         val selectedRcipe = fromBundle.selectedRecipe
         mBinding.recipes = selectedRcipe
+        mBinding.recipeNameToolbar.text = selectedRcipe.name
+        mBinding.backBtn.setOnClickListener { getNavController()?.popBackStack() }
     }
 
 }

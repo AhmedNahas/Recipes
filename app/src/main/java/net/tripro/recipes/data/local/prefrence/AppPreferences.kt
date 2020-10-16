@@ -13,8 +13,8 @@ class AppPreferences(context: Context?) {
         mPrefs.edit().putString(PREF_KEY_SORTING_TYPE, sortType).apply()
     }
 
-    fun getSortType(): String? {
-        return mPrefs.getString(PREF_KEY_SORTING_TYPE, null)
+    fun getSortType(): String {
+        return mPrefs.getString(PREF_KEY_SORTING_TYPE, null).toString()
     }
 
     init {

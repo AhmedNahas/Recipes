@@ -12,6 +12,7 @@ import android.view.Window
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -26,6 +27,7 @@ import net.tripro.recipes.utils.AppConstants
 
 class RecipesListFragment : BaseFragment(), RecipeListAdapter.OnItemClick {
 
+    private lateinit var sortType: String
     private lateinit var viewModel: RecipeListViewModel
     private lateinit var mBinding: FragmentRecipesListBinding
     lateinit var adapter: RecipeListAdapter
@@ -67,16 +69,20 @@ class RecipesListFragment : BaseFragment(), RecipeListAdapter.OnItemClick {
         }
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, onBackPressedCallback)
 
-        val sortType = getAppPreference()?.getSortType()
+        sortType = getAppPreference()!!.getSortType()
+        Log.d("sortType",sortType.toString())
+
 
         //sorting list
-        mBinding.sort.setOnClickListener({ showSortingDialog() })
+        mBinding.sort.setOnClickListener { showSortingDialog() }
 
         //setting adapter
         adapter = RecipeListAdapter(ArrayList(), this)
 
         //refresh
-        mBinding.retryBtn.setOnClickListener({subscripeToLiveData()})
+        mBinding.retryBtn.setOnClickListener{
+            mBinding.cLSpinKit.visibility = View.VISIBLE
+            subscripeToLiveData()}
     }
 
     private fun subscripeToLiveData() {
@@ -90,6 +96,10 @@ class RecipesListFragment : BaseFragment(), RecipeListAdapter.OnItemClick {
                 mBinding.cLSpinKit.visibility = View.GONE
                 adapter.setList(it)
                 mBinding.rvRecipes.adapter = adapter
+                //if user has chosen a sort type before , will apply it after list fetched
+                if (sortType != null){
+                    viewModel.setSortType(sortType)
+                }
             })
             viewModel.getFilteredList().observe(viewLifecycleOwner, Observer {
                 adapter.setList(it)

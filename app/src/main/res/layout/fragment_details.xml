@@ -15,276 +15,320 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:background="@drawable/tv_box"
         tools:context=".ui.details.DetailsFragment">
 
-        <TextView
-            android:id="@+id/recipe_name"
-            android:layout_width="0dp"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:gravity="center"
-            android:padding="3dp"
-            android:text="@{recipes.name}"
-            android:textColor="@color/colorAccent"
-            android:textSize="20sp"
+            android:background="@color/colorAccent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="fish dish" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/recipe_headline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:ellipsize="marquee"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:padding="7dp"
-            android:singleLine="true"
-            android:text="@{recipes.headline}"
-            android:textColor="@color/colorAccent"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recipe_name"
-            tools:text="Some veryyyyy long text with all the characters that cannot fit in screen, it so sad :( that I will not scroll" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/recipe_image"
-            setImage="@{recipes.image}"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="7dp"
-            android:contentDescription="TODO"
-            android:padding="3dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recipe_headline"
-            tools:src="@drawable/splash_icon" />
+
+                <ImageButton
+                    android:id="@+id/back_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:backgroundTint="@android:color/transparent"
+                    android:src="@drawable/ic_back"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/recipe_name_toolbar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/back_btn"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.appcompat.widget.Toolbar>
 
         <LinearLayout
-            android:id="@+id/main_linear"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/tv_box"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/recipe_image"
-            app:layout_constraintTop_toBottomOf="@+id/recipe_image">
-
-            <LinearLayout
-                android:id="@+id/linear"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+            <TextView
+                android:id="@+id/recipe_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="5dp"
                 android:gravity="center"
-                android:layout_margin="6dp"
-                android:layout_marginEnd="5dp"
-                android:orientation="vertical">
+                android:padding="3dp"
+                android:text="@{recipes.name}"
+                android:textColor="@color/colorAccent"
+                android:textSize="15sp"
+                tools:text="fish dish" />
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/recipe_calories_title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:gravity="center"
-                        android:padding="3dp"
-                        android:text="@string/calories"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:id="@+id/recipe_calories_value"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:gravity="center"
-                        android:padding="3dp"
-                        android:text="@{recipes.calories}"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="15sp"
-                        tools:text="123" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/recipe_fats_title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:gravity="center"
-                        android:padding="3dp"
-                        android:text="@string/fats"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:id="@+id/recipe_fats_value"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:gravity="center"
-                        android:padding="3dp"
-                        android:text="@{recipes.fats}"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="15sp"
-                        tools:text="123" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/recipe_carbs_title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:gravity="center"
-                        android:padding="3dp"
-                        android:text="@string/carbs"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:id="@+id/recipe_carbs_value"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:gravity="center"
-                        android:padding="3dp"
-                        android:text="@{recipes.carbos}"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="15sp"
-                        tools:text="123" />
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/linear2"
+            <TextView
+                android:id="@+id/recipe_headline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_margin="6dp"
-                android:layout_marginEnd="5dp"
-                android:orientation="vertical"
+                android:layout_margin="4dp"
+                android:ellipsize="marquee"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:padding="7dp"
+                android:singleLine="true"
+                android:text="@{recipes.headline}"
+                android:textColor="@color/colorAccent"
+                android:textSize="15sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/linear"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recipe_name"
+                tools:text="Some veryyyyy long text with all the characters that cannot fit in screen, it so sad :( that I will not scroll" />
+
+            <ImageView
+                android:id="@+id/recipe_image"
+                setImage="@{recipes.image}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="7dp"
+                android:contentDescription="TODO"
+                android:padding="3dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recipe_headline"
+                tools:src="@drawable/splash_icon" />
+
+            <LinearLayout
+                android:id="@+id/main_linear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/recipe_image"
                 app:layout_constraintTop_toBottomOf="@+id/recipe_image">
 
                 <LinearLayout
+                    android:id="@+id/linear"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:gravity="center"
+                    android:layout_marginEnd="5dp"
+                    android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/recipe_difficulty_title"
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:gravity="center"
-                        android:padding="3dp"
-                        android:text="@string/difficulty"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="15sp" />
+                        android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/recipe_difficulty_value"
+                        <TextView
+                            android:id="@+id/recipe_calories_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:gravity="center"
+                            android:padding="3dp"
+                            android:text="@string/calories"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/recipe_calories_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:gravity="center"
+                            android:padding="3dp"
+                            android:text="@{recipes.calories}"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="12sp"
+                            tools:text="123" />
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:gravity="center"
-                        android:padding="3dp"
-                        android:text="@{recipes.difficulty.toString()}"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="15sp"
-                        tools:text="123" />
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/recipe_fats_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:gravity="center"
+                            android:padding="3dp"
+                            android:text="@string/fats"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/recipe_fats_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:gravity="center"
+                            android:padding="3dp"
+                            android:text="@{recipes.fats}"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="12sp"
+                            tools:text="123" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/recipe_carbs_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:gravity="center"
+                            android:padding="3dp"
+                            android:text="@string/carbs"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/recipe_carbs_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:gravity="center"
+                            android:padding="3dp"
+                            android:text="@{recipes.carbos}"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="12sp"
+                            tools:text="123" />
+                    </LinearLayout>
+
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/linear2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:gravity="center"
+                    android:layout_marginEnd="5dp"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/linear"
+                    app:layout_constraintTop_toBottomOf="@+id/recipe_image">
 
-                    <TextView
-                        android:id="@+id/recipe_protiens_title"
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:gravity="center"
-                        android:padding="3dp"
-                        android:text="@string/protiens"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="15sp" />
+                        android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/recipe_protiens_value"
+                        <TextView
+                            android:id="@+id/recipe_difficulty_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:gravity="center"
+                            android:padding="3dp"
+                            android:text="@string/difficulty"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/recipe_difficulty_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:gravity="center"
+                            android:padding="3dp"
+                            android:text="@{recipes.difficulty.toString()}"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="15sp"
+                            tools:text="123" />
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:gravity="center"
-                        android:padding="3dp"
-                        android:text="@{recipes.proteins}"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="15sp"
-                        tools:text="123" />
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/recipe_protiens_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:gravity="center"
+                            android:padding="3dp"
+                            android:text="@string/protiens"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/recipe_protiens_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:gravity="center"
+                            android:padding="3dp"
+                            android:text="@{recipes.proteins}"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="12sp"
+                            tools:text="123" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/recipe_time_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:gravity="center"
+                            android:padding="3dp"
+                            android:text="@string/prepration"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/recipe_time_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:gravity="center"
+                            android:padding="3dp"
+                            android:text="@{recipes.time}"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="12sp"
+                            tools:text="123" />
+                    </LinearLayout>
+
                 </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/recipe_time_title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:gravity="center"
-                        android:padding="3dp"
-                        android:text="@string/prepration"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:id="@+id/recipe_time_value"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:gravity="center"
-                        android:padding="3dp"
-                        android:text="@{recipes.time}"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="15sp"
-                        tools:text="123" />
-                </LinearLayout>
-
             </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/tv_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="@{recipes.description}"
+                android:padding="5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/main_linear"/>
         </LinearLayout>
-
-
-        <TextView
-            android:id="@+id/tv_description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:text="@{recipes.description}"
-            android:padding="5dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/main_linear"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

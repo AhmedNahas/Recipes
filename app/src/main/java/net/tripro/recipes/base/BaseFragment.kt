@@ -20,13 +20,18 @@ import net.tripro.recipes.data.local.prefrence.AppPreferences
 
 open class BaseFragment : Fragment() {
     private var navController: NavController? = null
-    private var appPreferences: AppPreferences? = null
+    private lateinit var appPreferences: AppPreferences
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         navController =
             activity?.let { Navigation.findNavController(it, R.id.navigationHostFragment) }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         appPreferences = AppPreferences(context)
+
     }
 
     fun getNavController(): NavController? {

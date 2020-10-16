@@ -38,17 +38,28 @@
                     android:drawableStart="@drawable/ic_search"
                     android:hint="@string/search"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/sort"
+                    app:layout_constraintEnd_toStartOf="@+id/retry_btn"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
+                <ImageButton
+                    android:id="@+id/retry_btn"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center"
+                    android:backgroundTint="@android:color/transparent"
+                    android:src="@drawable/ic_refresh"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/sort"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <ImageButton
                     android:id="@+id/sort"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:src="@drawable/ic_sort"
                     android:visibility="gone"
+                    android:backgroundTint="@android:color/transparent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -67,14 +78,6 @@
             app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
             <ImageView
-                android:id="@+id/retry_btn"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                android:layout_marginTop="20dp"
-                android:layout_gravity="center"
-                android:src="@drawable/ic_refresh" />
-
-            <ImageView
                 android:id="@+id/no_internet"
                 android:layout_width="match_parent"
                 android:layout_marginTop="10dp"
@@ -84,7 +87,7 @@
         </LinearLayout>
 
 
-        <androidx.recyclerview.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_recipes"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -94,8 +97,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar"
             tools:listitem="@layout/recipes_item" />
-
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cL_spinKit"
             android:layout_width="0dp"
