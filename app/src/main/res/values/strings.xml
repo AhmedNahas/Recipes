@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Recipes</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="msg_error_connection">No internet connection</string>
+    <string name="search">Search</string>
+    <string name="sort_by">Sort by :</string>
+    <string name="calories">Calories :</string>
+    <string name="fats">Fats :</string>
+    <string name="carbs">Carbs :</string>
+    <string name="difficulty">Difficulty</string>
+    <string name="protiens">Protiens :</string>
+    <string name="prepration">Prepration :</string>
+</resources>
