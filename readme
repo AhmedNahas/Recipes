@@ -1,0 +1,6 @@
+This file descripes the how did i start this project
+1- firstly i started with designing the architure i'm going to use which is based on the MVVM pattern
+2- implement all the required libraries ( retrofit - navComponent - ... )
+3- build the base of the app in my case decided to use only ( baseFragment) as i used the (single activity concept)
+4- dividing all the project into small sprints as in (Agile methodologies)
+5- finishing each sprint
